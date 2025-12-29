@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <title>DIGIY DRIVER — Chauffeurs Privés Sénégal</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="DIGIY DRIVER — Chauffeurs privés au Sénégal • 0% commission • Contact direct • Transferts AIBD, circuits, disponibilité 24/7.">
+
+  <style>
+    :root{
+      --bg:#020617;
+      --card:#030712;
+      --accent:#facc15;
+      --accent2:#0ea5e9;
+      --ink:#f9fafb;
+      --muted:#cbd5e1;
+    }
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",system-ui,sans-serif;
+    }
+    body{
+      background:#020617;
+      color:var(--ink);
+      padding:12px;
+      display:flex;
+      justify-content:center;
+    }
+    .app{
+      width:100%;
+      max-width:1100px;
+      min-height:100vh;
+    }
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      margin-bottom:18px;
+      gap:10px;
+      flex-wrap:wrap;
+    }
+    .brand{
+      display:flex;
+      gap:12px;
+      align-items:center;
+    }
+    .brand-logo{
+      width:50px;
+      height:50px;
+      border-radius:16px;
+      background:radial-gradient(circle at 30% 0%,#0ea5e9,#0284c7);
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:24px;
+      box-shadow:0 10px 24px rgba(14,165,233,0.55);
+    }
+    .brand-title{
+      font-size:24px;
+      font-weight:900;
+      color:var(--accent2);
+      text-transform:uppercase;
+      letter-spacing:0.08em;
+    }
+    .brand-sub{
+      font-size:15px;
+      color:var(--muted);
+      font-weight:600;
+    }
+    .back-link{
+      font-size:13px;
+      color:var(--muted);
+      text-decoration:none;
+      padding:8px 14px;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.5);
+      background:rgba(15,23,42,0.9);
+      display:inline-flex;
+      align-items:center;
+      gap:6px;
+    }
+
+    .hero{
+      background:linear-gradient(135deg,rgba(14,165,233,0.15),rgba(3,7,18,0.96));
+      border:1px solid rgba(14,165,233,0.3);
+      border-radius:20px;
+      padding:20px;
+      margin-bottom:20px;
+      text-align:center;
+    }
+    .hero h2{
+      font-size:28px;
+      font-weight:900;
+      color:var(--accent);
+      margin-bottom:8px;
+    }
+    .hero h2 span{
+      color:var(--accent2);
+    }
+    .hero p{
+      font-size:16px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+    .hero .stats{
+      display:flex;
+      gap:20px;
+      justify-content:center;
+      margin-top:16px;
+      flex-wrap:wrap;
+    }
+    .stat-item{
+      font-size:14px;
+      font-weight:800;
+      color:var(--accent2);
+    }
+
+    .grid{
+      margin-top:10px;
+      display:grid;
+      grid-template-columns:repeat(3,minmax(0,1fr));
+      gap:18px;
+    }
+    @media(max-width:900px){
+      .grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+      }
+    }
+    @media(max-width:640px){
+      .grid{
+        grid-template-columns:1fr;
+      }
+      .hero h2{
+        font-size:22px;
+      }
+      .hero p{
+        font-size:14px;
+      }
+    }
+
+    .card{
+      background:var(--card);
+      border-radius:22px;
+      border:1px solid rgba(148,163,184,0.35);
+      padding:14px;
+      box-shadow:0 14px 32px rgba(0,0,0,0.55);
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      overflow:hidden;
+      transition:all 0.3s ease;
+    }
+    .card:hover{
+      transform:translateY(-4px);
+      box-shadow:0 18px 40px rgba(14,165,233,0.3);
+    }
+    .photo{
+      width:100%;
+      height:220px;
+      border-radius:16px;
+      overflow:hidden;
+      border:2px solid var(--accent2);
+      position:relative;
+    }
+    .photo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .hub-badge{
+      position:absolute;
+      top:10px;
+      right:10px;
+      background:var(--accent);
+      color:#111;
+      padding:6px 12px;
+      border-radius:999px;
+      font-size:11px;
+      font-weight:900;
+      box-shadow:0 4px 12px rgba(250,204,21,0.6);
+    }
+    .name{
+      font-size:22px;
+      font-weight:900;
+      color:var(--accent2);
+    }
+    .type{
+      font-size:15px;
+      font-weight:700;
+      color:var(--accent);
+    }
+    .desc{
+      font-size:16px;
+      line-height:1.5;
+      color:var(--ink);
+    }
+    .city{
+      font-size:14px;
+      color:var(--muted);
+      font-weight:600;
+      display:flex;
+      align-items:center;
+      gap:6px;
+    }
+    .price{
+      font-size:15px;
+      font-weight:800;
+      color:var(--accent);
+      padding:8px 12px;
+      background:rgba(250,204,21,0.15);
+      border-radius:10px;
+      text-align:center;
+    }
+    .actions{
+      display:flex;
+      gap:10px;
+      margin-top:8px;
+      flex-wrap:wrap;
+    }
+    .btn{
+      flex:1;
+      padding:11px 16px;
+      border-radius:999px;
+      border:none;
+      font-size:15px;
+      font-weight:900;
+      cursor:pointer;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-decoration:none;
+      text-align:center;
+      white-space:nowrap;
+      transition:all 0.2s ease;
+    }
+    .btn-view{
+      background:linear-gradient(135deg,#0ea5e9,#0284c7);
+      color:#fff;
+      box-shadow:0 7px 18px rgba(14,165,233,0.55);
+    }
+    .btn-view:hover{
+      transform:translateY(-2px);
+      box-shadow:0 10px 24px rgba(14,165,233,0.7);
+    }
+    .btn-wa{
+      background:rgba(34,197,94,0.2);
+      border:1px solid var(--accent2);
+      color:#bbf7d0;
+    }
+    .btn-wa:hover{
+      background:rgba(34,197,94,0.3);
+      transform:translateY(-2px);
+    }
+    footer{
+      margin-top:30px;
+      padding-top:20px;
+      border-top:1px solid rgba(148,163,184,0.3);
+      font-size:12px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+    }
+    footer span{
+      color:var(--accent);
+      font-weight:800;
+    }
+  </style>
+</head>
+<body>
+<div class="app">
+
+  <header>
+    <div class="brand">
+      <div class="brand-logo">🚗</div>
+      <div>
+        <div class="brand-title">DIGIY DRIVER</div>
+        <div class="brand-sub">Chauffeurs Privés • Sénégal</div>
+      </div>
+    </div>
+
+    <a href="index.html" class="back-link">
+      <span>←</span> DIGIY HUB
+    </a>
+  </header>
+
+  <!-- HERO SECTION -->
+  <div class="hero">
+    <h2>🚗 Chauffeurs <span>Professionnels</span> • 0% Commission</h2>
+    <p>
+      Nos partenaires chauffeurs au Sénégal • Transferts AIBD, circuits, disponibilité 24/7<br>
+      <strong>Contact direct</strong> • Tarifs transparents • Sans intermédiaire
+    </p>
+    <div class="stats">
+      <div class="stat-item">✅ 1 Chauffeur actif</div>
+      <div class="stat-item">🚀 4 Bientôt disponibles</div>
+      <div class="stat-item">💬 WhatsApp direct</div>
+      <div class="stat-item">🚗 Saly - Dakar - Sénégal</div>
+    </div>
+  </div>
+
+  <section class="grid">
+
+    <!-- 1) LAMINE - CHAUFFEUR ACTIF -->
+    <div class="card">
+      <div class="photo">
+        <img src="https://digiylyfe.com/wp-content/uploads/2025/05/CHAUFFEUR-LAMINE-1-e1757908803734.webp" alt="Chauffeur privé Lamine Saly - Carte professionnelle">
+        <div class="hub-badge">⭐ ACTIF</div>
+      </div>
+      <div class="name">🚗 Lamine</div>
+      <div class="type">Chauffeur Privé Professionnel</div>
+      <div class="city">📍 Saly • Petite Côte • Dakar</div>
+      <div class="desc">
+        Transferts AIBD, circuits touristiques, disponibilité sur demande.
+        Véhicule climatisé, conduite sécurisée, connaissance parfaite du Sénégal.
+      </div>
+      <div class="price">💰 Sur demande • Devis personnalisé</div>
+      <div class="actions">
+        <a class="btn btn-view" href="https://digiylyfe.com/partenaires-lamine/" target="_blank">Voir la fiche</a>
+        <button class="btn btn-wa"
+                onclick="wa('+221784413680','Salam Lamine, je viens de DIGIY DRIVER et je veux un devis pour un transfert/circuit.');">
+          💬 WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- 2) PLACEHOLDER - CHAUFFEUR DAKAR -->
+    <div class="card" style="opacity:0.7;position:relative;">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(14,165,233,0.95);color:#fff;padding:12px 24px;border-radius:12px;font-weight:900;font-size:14px;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        🚀 BIENTÔT DISPONIBLE
+      </div>
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80" alt="Chauffeur privé Dakar">
+      </div>
+      <div class="name">🚗 [Nom chauffeur]</div>
+      <div class="type">Chauffeur Privé • Dakar</div>
+      <div class="city">📍 Dakar & Banlieue</div>
+      <div class="desc">
+        Transferts professionnels, missions business, déplacements quotidiens.
+        Véhicule haut de gamme, ponctualité garantie.
+      </div>
+      <div class="price">💰 Tarifs compétitifs</div>
+      <div class="actions">
+        <button class="btn btn-view" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt disponible</button>
+        <button class="btn btn-wa" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt</button>
+      </div>
+    </div>
+
+    <!-- 3) PLACEHOLDER - CHAUFFEUR SAINT-LOUIS -->
+    <div class="card" style="opacity:0.7;position:relative;">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(14,165,233,0.95);color:#fff;padding:12px 24px;border-radius:12px;font-weight:900;font-size:14px;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        🚀 BIENTÔT DISPONIBLE
+      </div>
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1552519507-d9a4e5a17f78?auto=format&fit=crop&w=800&q=80" alt="Chauffeur privé Saint-Louis">
+      </div>
+      <div class="name">🚗 [Nom chauffeur]</div>
+      <div class="type">Chauffeur Privé • Saint-Louis</div>
+      <div class="city">📍 Saint-Louis & Nord</div>
+      <div class="desc">
+        Circuits découverte Saint-Louis, île de Gorée, Lac Rose.
+        Guide local expérimenté, anglais/français parlé.
+      </div>
+      <div class="price">💰 Circuits touristiques</div>
+      <div class="actions">
+        <button class="btn btn-view" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt disponible</button>
+        <button class="btn btn-wa" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt</button>
+      </div>
+    </div>
+
+    <!-- 4) PLACEHOLDER - CHAUFFEUR CASAMANCE -->
+    <div class="card" style="opacity:0.7;position:relative;">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(14,165,233,0.95);color:#fff;padding:12px 24px;border-radius:12px;font-weight:900;font-size:14px;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        🚀 BIENTÔT DISPONIBLE
+      </div>
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?auto=format&fit=crop&w=800&q=80" alt="Chauffeur privé Casamance">
+      </div>
+      <div class="name">🚗 [Nom chauffeur]</div>
+      <div class="type">Chauffeur Privé • Casamance</div>
+      <div class="city">📍 Ziguinchor & Casamance</div>
+      <div class="desc">
+        Spécialiste circuits Casamance, bolongs, villages traditionnels.
+        4x4 disponible, connaissance terrain exceptionnelle.
+      </div>
+      <div class="price">💰 Aventure & authenticité</div>
+      <div class="actions">
+        <button class="btn btn-view" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt disponible</button>
+        <button class="btn btn-wa" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt</button>
+      </div>
+    </div>
+
+    <!-- 5) PLACEHOLDER - CHAUFFEUR THIÈS -->
+    <div class="card" style="opacity:0.7;position:relative;">
+      <div style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(14,165,233,0.95);color:#fff;padding:12px 24px;border-radius:12px;font-weight:900;font-size:14px;z-index:10;box-shadow:0 8px 24px rgba(0,0,0,0.4);">
+        🚀 BIENTÔT DISPONIBLE
+      </div>
+      <div class="photo">
+        <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=800&q=80" alt="Chauffeur privé Thiès">
+      </div>
+      <div class="name">🚗 [Nom chauffeur]</div>
+      <div class="type">Chauffeur Privé • Thiès</div>
+      <div class="city">📍 Thiès & Région</div>
+      <div class="desc">
+        Liaisons Thiès-Dakar quotidiennes, transferts aéroport AIBD.
+        Service régulier, tarifs négociables pour abonnements.
+      </div>
+      <div class="price">💰 Formules abonnement</div>
+      <div class="actions">
+        <button class="btn btn-view" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt disponible</button>
+        <button class="btn btn-wa" disabled style="opacity:0.5;cursor:not-allowed;">Bientôt</button>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <div>DIGIY DRIVER • <span>Module DIGIYLYFE</span> — Saly → Sénégal → Afrique ∞</div>
+    <div>0% commission • Contact direct chauffeurs • Tarifs transparents</div>
+  </footer>
+
+</div>
+
+<script>
+function wa(phone, msg){
+  const clean = phone.replace(/\s+/g,"").replace("+","");
+  const txt = encodeURIComponent(msg || "");
+  const url = "https://wa.me/" + clean + (txt ? ("?text="+txt) : "");
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
